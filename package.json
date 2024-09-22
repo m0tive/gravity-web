@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "test": "jest",
-    "lint": "eslint --flag unstable_ts_config . --ext .ts"
+    "lint": "eslint --flag unstable_ts_config --ext .ts ."
   },
   "dependencies": {},
   "devDependencies": {
