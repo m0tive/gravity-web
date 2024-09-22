@@ -1,6 +1,7 @@
 import { Linter } from 'eslint';
 
 const config: Linter.Config = {
+  files: ["**/*.ts", "**/*.tsx"],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2020, // Allows parsing of modern ECMAScript features
