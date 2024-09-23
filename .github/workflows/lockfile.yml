@@ -1,0 +1,30 @@
+name: Update Package Lock
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-lockfile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install dependencies and update lockfile
+        run: |
+          npm install --package-lock-only
+          
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add package-lock.json
+          git commit -m "Update package-lock.json" || echo "No changes to commit"
+          
+      - name: Push changes
+        run: git push
