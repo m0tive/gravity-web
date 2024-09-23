@@ -29,6 +29,6 @@
     "ts-jest": "^29.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest-environment-jsdom": "^29.0.0",
-    "jiti": "^1.0.0"
+    "ts-node": "^10.0.0"
   }
 }
