@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies and update lockfile
         run: |
-          npm install --package-lock-only
+          npm install
           
       - name: Commit changes
         run: |
