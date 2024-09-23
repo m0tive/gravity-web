@@ -11,7 +11,7 @@ const config: Config = {
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy', // Mock SCSS/CSS imports
   },
-  //setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'], // Optional: Jest setup file
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'], // Optional: Jest setup file
 };
 
 export default config;
