@@ -21,6 +21,6 @@ test('renders welcome message and handles start button', () => {
   expect(welcomeMessage).not.toBeInTheDocument();
 
   // Ensure the canvas is now visible (from the GamePage)
-  const canvas = screen.getByRole('img'); // Assuming the canvas has a role of 'img'
+  const canvas = screen.getByRole('presentation'); // Assuming the canvas has a role of 'img'
   expect(canvas).toBeInTheDocument();
 });
