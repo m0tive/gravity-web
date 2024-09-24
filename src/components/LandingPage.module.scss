@@ -1,0 +1,27 @@
+.container {
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.text {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.startButton {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.startButton:hover {
+  background-color: #0056b3;
+}
