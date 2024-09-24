@@ -17,7 +17,13 @@ export const GamePage: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <canvas ref={canvasRef} className={styles.canvas} width={window.innerWidth} height={window.innerHeight} />
+      <canvas
+        ref={canvasRef}
+        className={styles.canvas}
+        width={window.innerWidth}
+        height={window.innerHeight}
+        role="presentation" // Add role here for accessibility
+      />
     </div>
   );
 };
