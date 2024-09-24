@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { LandingPage } from './components/LandingPage';
+import { GamePage } from './components/GamePage';
 import styles from './App.module.scss';
 
 export const App: React.FC = () => {
+  const [isGameStarted, setIsGameStarted] = useState(false);
+
+  const startGame = () => {
+    setIsGameStarted(true);
+  };
+
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Welcome to Gravity Web</h1>
-      <p className={styles.text}>This is a placeholder for the game UI.</p>
+      {isGameStarted ? <GamePage /> : <LandingPage onStart={startGame} />}
     </div>
   );
 };
