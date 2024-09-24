@@ -13,6 +13,11 @@ export default defineConfig({
       '@': '/src' // Adjust the alias as needed
     }
   },*/
+  css: {
+    modules: {
+      localsConvention: 'camelCase', // Optional: Converts class names to camelCase
+    },
+  },
   server: {
     port: 3000, // Change the port if necessary
   },
