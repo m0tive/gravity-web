@@ -9,11 +9,8 @@ const config: Config = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   roots: ['<rootDir>/src'],
   moduleNameMapper: {
-    '\\.(css|scss)$': 'identity-obj-proxy', // Mock SCSS/CSS imports
+    '\\.(css|scss)$': '<rootDir>/__mocks__/styleMock.js', // Use custom mock for styles
   },
-  transformIgnorePatterns: [
-    'node_modules/(?!identity-obj-proxy)', // Ensure proxy is transformed
-  ],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
 
