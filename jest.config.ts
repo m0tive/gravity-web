@@ -4,14 +4,17 @@ const config: Config = {
   verbose: true,
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.tsx?$': 'ts-jest', // Transforms TypeScript and TSX files using ts-jest
+    '^.+\\.tsx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
-  roots: ['<rootDir>/src'], // Limit tests to the src directory
+  roots: ['<rootDir>/src'],
   moduleNameMapper: {
     '\\.(css|scss)$': 'identity-obj-proxy', // Mock SCSS/CSS imports
   },
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'], // Optional: Jest setup file
+  transformIgnorePatterns: [
+    'node_modules/(?!identity-obj-proxy)', // Ensure proxy is transformed
+  ],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
 
 export default config;
