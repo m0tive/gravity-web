@@ -1,3 +1,22 @@
+@import './variables.scss';
+
+// Global reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: sans-serif;
+}
+
 .container {
   display: flex;
   justify-content: center;
