@@ -1,27 +1,48 @@
 .container {
   text-align: center;
+  background-color: #1E1E2C;
+  color: #E5E5E5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #C37FFA;
 }
 
 .text {
   font-size: 1.2rem;
   margin-bottom: 2rem;
+  color: #E5E5E5;
 }
 
 .startButton {
   padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: white;
+  font-size: 1.2rem;
+  background-color: #E78F59;
+  color: #1E1E2C;
   border: none;
   cursor: pointer;
   border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
 }
 
 .startButton:hover {
-  background-color: #0056b3;
+  background-color: #C37FFA;
+}
+
+.repoLink a {
+  color: #00FFD1;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+.repoLink a:hover {
+  text-decoration: underline;
 }
