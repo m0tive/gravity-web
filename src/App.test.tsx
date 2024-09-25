@@ -1,10 +1,15 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import { App } from './App';
 
 test('renders welcome message and handles start button', () => {
   // Render the App component
-  render(<App />);
+  render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+  );
 
   // Check that the welcome message is displayed on the LandingPage
   const welcomeMessage = screen.getByText(/Welcome to Gravity Web/i);
