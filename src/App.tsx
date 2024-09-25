@@ -29,10 +29,10 @@ export const App: React.FC = () => {
       }
     };
 
-    window.addEventListener('popstate', handlePopState);
+    window.addEventListener('hashchange', handlePopState);
 
     return () => {
-      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('hashchange', handlePopState);
     };
   }, [location.pathname, navigate]);
 
