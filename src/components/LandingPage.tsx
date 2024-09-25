@@ -13,6 +13,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart }) => {
       <button className={styles.startButton} onClick={onStart}>
         Start
       </button>
+      <p className={styles.repoLink}>
+        <a href="https://github.com/m0tive/gravity-web" target="_blank" rel="noopener noreferrer">
+          View on GitHub
+        </a>
+      </p>
     </div>
   );
 };
