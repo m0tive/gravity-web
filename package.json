@@ -35,6 +35,7 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/jest-dom": "^6.0.0",
     "sass": "^1.0.0",
-    "jest-canvas-mock": "^2.0.0"
+    "jest-canvas-mock": "^2.0.0",
+    "ts-jest-mock-import-meta": "^1.0.0"
   }
 }
