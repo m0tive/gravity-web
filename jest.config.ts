@@ -4,7 +4,7 @@ const config: Config = {
   verbose: true,
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.tsx?$': '[
+    '^.+\\.tsx?$': [
       'ts-jest',
       {
         diagnostics: {
