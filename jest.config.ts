@@ -4,7 +4,14 @@ const config: Config = {
   verbose: true,
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.tsx?$': 'ts-jest', // Transforms TypeScript and TSX files using ts-jest
+    '^.+\\.tsx?$': '[
+      'ts-jest',
+      {
+        diagnostics: {
+          ignoreCodes: [1343]
+        },
+      },
+    ],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   roots: ['<rootDir>/src'], // Limit tests to the src directory
