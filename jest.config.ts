@@ -14,7 +14,7 @@ const config: Config = {
           before: [
             {
               path: 'node_modules/ts-jest-mock-import-meta',  // or, alternatively, 'ts-jest-mock-import-meta' directly, without node_modules.
-              options: { metaObjectReplacement: { } }
+              options: { metaObjectReplacement: { env: {} } }
             }
           ]
         }
