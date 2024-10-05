@@ -1,8 +1,13 @@
 import React, { useEffect, useRef } from 'react';
+import { useBlocker } from 'react-router-dom';
 import styles from './GamePage.module.scss';
 
 export const GamePage: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  
+  useBlocker(() =>
+    !window.confirm('Are you sure you want to leave?')
+  );
 
   useEffect(() => {
     const canvas = canvasRef.current;
