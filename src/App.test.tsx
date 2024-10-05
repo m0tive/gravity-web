@@ -12,7 +12,7 @@ test('renders welcome message and handles start button', () => {
   );
 
   // Check that the welcome message is displayed on the LandingPage
-  const welcomeMessage = screen.getByText(/Welcome to Gravity Web/i);
+  const welcomeMessage = screen.getByText(/Gravity Web 🚀/i);
   expect(welcomeMessage).toBeInTheDocument();
 
   // Check that the Start button is present
