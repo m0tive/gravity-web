@@ -10,14 +10,17 @@ const config: Config = {
         diagnostics: {
           ignoreCodes: [1343]
         },
-        //astTransformers: {
-        //  before: [
-        //    {
-        //      path: 'node_modules/ts-jest-mock-import-meta',  // or, alternatively, 'ts-jest-mock-import-meta' directly, without node_modules.
-        //      options: { metaObjectReplacement: { env: {} } }
-        //    }
-        //  ]
-        //}
+        astTransformers: {
+          before: [
+            {
+              path: 'node_modules/ts-jest-mock-import-meta',  // or, alternatively, 'ts-jest-mock-import-meta' directly, without node_modules.
+              options: { metaObjectReplacement: { env: {
+                VITE_BUILD_TIME: 'mocked-build-time',
+                VITE_GIT_HASH: 'mocked-git-hash',
+              } } }
+            }
+          ]
+        }
       },
     ],
   },
