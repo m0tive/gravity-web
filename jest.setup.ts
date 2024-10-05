@@ -1,11 +1,18 @@
 // jest.setup.ts
 import '@testing-library/jest-dom';
 import 'jest-canvas-mock';
-import fetch, { Request, Response } from 'node-fetch';
+import fetch from 'node-fetch';
 
-global.Request = Request;
-global.Response = Response;
+declare global {
+  const Request: typeof fetch.Request;
+  const Response: typeof fetch.Response;
+  const fetch: typeof fetch;
+}
+
+global.Request = fetch.Request;
+global.Response = fetch.Response;
 global.fetch = fetch;
+
 
 //global.import = {
 //  meta: {
