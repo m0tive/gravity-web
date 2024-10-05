@@ -1,17 +1,11 @@
+// main.tsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
-import { App } from './App';
-
-const router = createHashRouter([
-  {
-    path: '/',
-    element: <App />,
-  },
-]);
+import { RouterProvider } from 'react-router-dom';
+import routes from './routes';
 
 ReactDOM.createRoot(document.getElementById('app') as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={routes} />
   </React.StrictMode>
 );
