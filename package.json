@@ -37,6 +37,6 @@
     "sass": "^1.0.0",
     "jest-canvas-mock": "^2.0.0",
     "ts-jest-mock-import-meta": "^1.0.0",
-    "node-fetch": "^3.0.0"
+    "node-fetch": "^2.0.0"
   }
 }
