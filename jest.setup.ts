@@ -3,16 +3,10 @@ import '@testing-library/jest-dom';
 import 'jest-canvas-mock';
 import fetch from 'node-fetch';
 
-declare global {
-  const Request: typeof fetch.Request;
-  const Response: typeof fetch.Response;
-  const fetch: typeof fetch;
-}
-
-global.Request = fetch.Request;
-global.Response = fetch.Response;
-global.fetch = fetch;
-
+// Assigning directly to global without redeclaration
+(global as any).Request = fetch.Request;
+(global as any).Response = fetch.Response;
+(global as any).fetch = fetch;
 
 //global.import = {
 //  meta: {
