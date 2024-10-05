@@ -1,14 +1,20 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { App } from './App';
 
 test('renders welcome message and handles start button', () => {
-  // Render the App component
+  // Create a memory router with the initial route set to '/'
+  const router = createMemoryRouter([
+    {
+      path: '/',
+      element: <App />,
+    },
+  ]);
+
+  // Render the App component with the RouterProvider
   render(
-    <MemoryRouter>
-      <App />
-    </MemoryRouter>
+    <RouterProvider router={router} />
   );
 
   // Check that the welcome message is displayed on the LandingPage
