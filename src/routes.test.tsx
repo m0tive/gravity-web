@@ -1,20 +1,12 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { createMemoryRouter, RouterProvider } from 'react-router-dom';
-import { App } from './App';
+import { RouterProvider } from 'react-router-dom';
+import routes from './routes'; // Import the routes configuration
 
 test('renders welcome message and handles start button', () => {
-  // Create a memory router with the initial route set to '/'
-  const router = createMemoryRouter([
-    {
-      path: '/',
-      element: <App />,
-    },
-  ]);
-
-  // Render the App component with the RouterProvider
+  // Render the App component with the common router setup
   render(
-    <RouterProvider router={router} />
+    <RouterProvider router={routes} />
   );
 
   // Check that the welcome message is displayed on the LandingPage
@@ -32,6 +24,6 @@ test('renders welcome message and handles start button', () => {
   expect(welcomeMessage).not.toBeInTheDocument();
 
   // Ensure the canvas is now visible (from the GamePage)
-  const canvas = screen.getByRole('presentation'); // Assuming the canvas has a role of 'img'
+  const canvas = screen.getByRole('presentation'); // Assuming the canvas has a role of 'presentation'
   expect(canvas).toBeInTheDocument();
 });
