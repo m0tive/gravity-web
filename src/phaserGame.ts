@@ -14,7 +14,7 @@ export function initializePhaserGame() {
     physics: {
       default: 'matter',
       matter: {
-        gravity: { y: 0.5 },
+        gravity: { x: 0, y: 0.5 },
       },
     },
   });
