@@ -26,10 +26,10 @@ function preload(this: Phaser.Scene) {
 
 function create(this: Phaser.Scene) {
   // Example: Adding a static ground using Matter.js
-  const ground = this.matter.add.rectangle(400, 580, 800, 40, { isStatic: true });
+ this.matter.add.rectangle(400, 580, 800, 40, { isStatic: true });
   this.add.rectangle(400, 580, 800, 40, 0x8b4513); // Visual ground
 }
 
-function update(this: Phaser.Scene, time: number, delta: number) {
+function update(this: Phaser.Scene, _time: number, _delta: number) {
   // Update game logic here
 }
