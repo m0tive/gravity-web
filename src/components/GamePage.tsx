@@ -1,34 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useBlocker } from 'react-router-dom';
+import { GameCanvas } from './GameCanvas';
 import styles from './GamePage.module.scss';
 
 export const GamePage: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  
-  useBlocker(() =>
-    !window.confirm('Are you sure you want to leave?')
-  );
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (canvas) {
-      const ctx = canvas.getContext('2d');
-      if (ctx) {
-        ctx.fillStyle = 'black';
-        ctx.fillRect(0, 0, canvas.width, canvas.height); // Placeholder for rendering the game
-      }
-    }
-  }, []);
+  useBlocker(() => !window.confirm('Are you sure you want to leave?'));
 
   return (
     <div className={styles.container}>
-      <canvas
-        ref={canvasRef}
-        className={styles.canvas}
-        width={window.innerWidth}
-        height={window.innerHeight}
-        role="presentation" // Add role here for accessibility
-      />
+      <GameCanvas />
     </div>
   );
 };
