@@ -25,8 +25,11 @@ function preload(this: Phaser.Scene) {
 }
 
 function create(this: Phaser.Scene) {
-  // Example: Adding a static ground using Matter.js
- this.matter.add.rectangle(400, 580, 800, 40, { isStatic: true });
+  const canvas = this.game.canvas; // Get the Phaser-generated canvas
+  canvas.setAttribute('role', 'application'); // Set the role attribute
+  
+  // Example of adding a simple Matter.js body
+  this.matter.add.rectangle(400, 580, 800, 40, { isStatic: true });
   this.add.rectangle(400, 580, 800, 40, 0x8b4513); // Visual ground
 }
 
