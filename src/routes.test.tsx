@@ -28,7 +28,7 @@ test('renders welcome message and handles start button', () => {
   // Ensure the welcome message is no longer displayed after the game starts
   expect(welcomeMessage).not.toBeInTheDocument();
 
-  // Ensure the canvas is now visible (from the GamePage)
-  const canvas = screen.getByRole('presentation'); // Assuming the canvas has a role of 'presentation'
+  // Ensure the canvas is now visible on the GamePage by checking its class
+  const canvas = screen.getByClass('canvas'); // Assuming the canvas has a class of 'canvas'
   expect(canvas).toBeInTheDocument();
 });
