@@ -11,5 +11,5 @@ export const GameCanvas: React.FC = () => {
     };
   }, []);
 
-  return <div id="game-container" style={{ width: '100%', height: '100%' }} />;
+  return <div id="game-container" data-testid="game-canvas" style={{ width: '100%', height: '100%' }} />;
 };
