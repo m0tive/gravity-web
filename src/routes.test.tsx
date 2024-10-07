@@ -1,9 +1,9 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import routes from './routes'; // Import the routes configuration
 
-test('renders welcome message and handles start button', () => {
+test('renders welcome message and handles start button', async () => {
   // Create a memory router with the routes configuration
   const router = createMemoryRouter(routes, {
     initialEntries: ['/'], // Start at the landing page
@@ -28,7 +28,7 @@ test('renders welcome message and handles start button', () => {
   // Ensure the welcome message is no longer displayed after the game starts
   expect(welcomeMessage).not.toBeInTheDocument();
 
-  // Ensure the canvas is now visible on the GamePage by checking its class
-  const canvas = screen.getByClass('canvas'); // Assuming the canvas has a class of 'canvas'
+  // Ensure the canvas is now visible after loading (using waitFor to wait for async loading)
+  const canvas = await waitFor(() => screen.getByRole('application'));
   expect(canvas).toBeInTheDocument();
 });
