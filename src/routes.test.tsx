@@ -29,6 +29,6 @@ test('renders welcome message and handles start button', async () => {
   expect(welcomeMessage).not.toBeInTheDocument();
 
   // Ensure the canvas is now visible after loading (using waitFor to wait for async loading)
-  const canvas = await waitFor(() => screen.getByRole('application'));
+  const canvas = screen.getByTestId('game-canvas');
   expect(canvas).toBeInTheDocument();
 });
