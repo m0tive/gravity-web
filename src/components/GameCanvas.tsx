@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { initializePhaserGame } from '../phaserGame';
+import { initializePhaserGame } from '../game/phaserGame';
 
 export const GameCanvas: React.FC = () => {
   useEffect(() => {
