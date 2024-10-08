@@ -10,7 +10,7 @@ export class PlayerShip {
     this.sprite.setFrictionAir(0.05);
   }
 
-  update(time: number, delta: number) {
+  update(_time: number, _delta: number) {
     const pointer = this.scene.input.activePointer;
 
     if (pointer.isDown) {
