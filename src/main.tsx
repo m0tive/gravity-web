@@ -2,11 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { RouterProvider, createHashRouter } from 'react-router-dom';
 import routes from './routes';
-import 'eruda';
 
-if (window.location.search.includes('eruda=true') || localStorage.getItem('active-eruda') === 'true') {
-    eruda.init();
-}
+import('eruda').then(eruda => eruda.default.init());
 
 const router = createHashRouter(routes);
 
