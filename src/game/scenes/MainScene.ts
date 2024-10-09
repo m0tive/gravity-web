@@ -1,38 +1,50 @@
-import Phaser from 'phaser';
-import { createGroundTexture } from '../textures/GroundTexture';
-import { createThrusterParticle } from '../textures/ThrusterParticle';
-import { PlayerShip } from '../objects/PlayerShip';
+// src/game/scenes/MainScene.ts
+import { Spaceship } from '../objects/Spaceship';
+import { ThrusterParticles } from '../objects/Particles';
+import { Ground } from '../objects/Ground';
 
-export default class MainScene extends Phaser.Scene {
-  private player!: PlayerShip;
+export class MainScene extends Phaser.Scene {
+  private spaceship: Spaceship;
+  private particles: ThrusterParticles;
+  private isAccelerating = false;
+  private dragStartX: number | null = null;
 
   constructor() {
-    super({ key: 'MainScene' });
+    super('MainScene');
   }
+
+  preload() {}
 
   create() {
-  // Create procedural ground texture
-  const groundTexture = this.textures.createCanvas('ground', 800, 40);
+    // Procedural ground
+    new Ground(this);
 
-  // Check if groundTexture is not null before using it
-  if (groundTexture) {
-    createGroundTexture(groundTexture);
+    // Spaceship and particles
+    this.spaceship = new Spaceship(this);
+    this.particles = new ThrusterParticles(this, this.spaceship.getShip());
 
-    // Add ground to the scene
-    this.add.image(400, 580, 'ground');
-    this.matter.add.rectangle(400, 580, 800, 40, { isStatic: true });
-  } else {
-    console.error('Failed to create ground texture.');
+    this.input.on('pointerdown', () => this.isAccelerating = true);
+    this.input.on('pointerup', () => this.isAccelerating = false);
+    this.input.on('pointermove', this.handleDrag.bind(this));
   }
 
-  // Initialize player ship
-  this.player = new PlayerShip(this, 400, 300);
+  update() {
+    if (this.isAccelerating) {
+      this.spaceship.accelerate(0.05);
+      this.particles.update(this.spaceship.getShip());
+    } else {
+      this.particles.stop();
+    }
+  }
 
-  // Add thruster particle effect
-  createThrusterParticle(this);
-}
-
-  update(time: number, delta: number) {
-    this.player.update(time, delta);
+  handleDrag(pointer: Phaser.Input.Pointer) {
+    if (pointer.isDown) {
+      if (this.dragStartX === null) this.dragStartX = pointer.x;
+      const dragDistance = pointer.x - this.dragStartX;
+      this.spaceship.rotate(dragDistance, 0.03);
+      this.dragStartX = pointer.x;
+    } else {
+      this.dragStartX = null;
+    }
   }
 }
