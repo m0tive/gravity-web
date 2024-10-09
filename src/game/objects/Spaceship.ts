@@ -12,7 +12,7 @@ export class Spaceship {
       friction: 0.02,
       frictionAir: 0.05,
     });
-    this.ship.setMass(10); // Heavier ship for more realistic movement
+    this.ship.body.setMass(10); // Heavier ship for more realistic movement
   }
 
   public getShip() {
