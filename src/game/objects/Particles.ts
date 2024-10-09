@@ -3,9 +3,9 @@ import Phaser from 'phaser';
 
 export class ThrusterParticles {
   private emitter: Phaser.GameObjects.Particles.ParticleEmitter;
-  private ship: Phaser.Physics.Matter.Image;
+  //private ship: Phaser.Physics.Matter.Image;
 
-  constructor(scene: Phaser.Scene, ship: Phaser.Physics.Matter.Image) {
+  constructor(scene: Phaser.Scene, _ship: Phaser.Physics.Matter.Image) {
     // Create a tiny circle using graphics and use it as a particle
     const graphics = scene.add.graphics();
     graphics.fillStyle(0xFF4500);
