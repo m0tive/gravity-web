@@ -1,26 +1,32 @@
+// src/game/objects/Spaceship.ts
 import Phaser from 'phaser';
 
-export class PlayerShip {
-  private sprite: Phaser.Physics.Matter.Image;
+export class Spaceship {
+  private ship: Phaser.Physics.Matter.Image;
   private scene: Phaser.Scene;
 
-  constructor(scene: Phaser.Scene, x: number, y: number) {
+  constructor(scene: Phaser.Scene) {
     this.scene = scene;
-    this.sprite = this.scene.matter.add.image(x, y, undefined);
-    this.sprite.setFrictionAir(0.05);
+    this.ship = scene.matter.add.polygon(400, 300, 3, 30, {
+      restitution: 0.5,
+      friction: 0.02,
+      frictionAir: 0.05,
+    });
+    this.ship.setMass(10); // Heavier ship for more realistic movement
   }
 
-  update(_time: number, _delta: number) {
-    const pointer = this.scene.input.activePointer;
+  public getShip() {
+    return this.ship;
+  }
 
-    if (pointer.isDown) {
-      this.sprite.thrust(0.05);
-    }
+  public accelerate(speed: number) {
+    const angle = this.ship.rotation - Math.PI / 2;
+    const forceX = Math.cos(angle) * speed;
+    const forceY = Math.sin(angle) * speed;
+    this.ship.applyForce({ x: forceX, y: forceY });
+  }
 
-    if (pointer.x < this.sprite.x) {
-      this.sprite.setAngularVelocity(-0.05);
-    } else if (pointer.x > this.sprite.x) {
-      this.sprite.setAngularVelocity(0.05);
-    }
+  public rotate(dragDistance: number, rotationSpeed: number) {
+    this.ship.setAngularVelocity(dragDistance > 0 ? rotationSpeed : -rotationSpeed);
   }
 }
